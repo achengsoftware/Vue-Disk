@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <mt-popup
     v-model="showNenu"
     position="right"
@@ -18,11 +18,15 @@
     </template>
     </mt-popup>
 
-    <mt-header title="Eye Disk">
-      <mt-button  slot="right" @click="showNenu=!showNenu">
-         <img src="./assets/img/home.png" height="20" width="20" slot="icon">
-      </mt-button>
-    </mt-header>
+    <mt-header title="Eye Disk" class="header">
+        <mt-button  slot="left" @click="showNenu=!showNenu">
+          <img src="./assets/img/home.png" height="20" width="20" slot="icon">
+       </mt-button>
+     </mt-header>
+
+    <div class="content">
+      22
+    </div>
   </div>
 </template>
 
@@ -53,12 +57,28 @@
 .leftBar{
   height: 100%;
   width: 40%;
-  /* background-color: #26a2ff; */
 }
-  .leftBarBg{
+.leftBarBg{
     width: 100%;
     height: 100%;
     display: block;
     background-color:#343848;
-  }
+}
+.main{
+  /* position: relative; */
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.header{
+  width: 100%;
+  height: 40px;
+   flex:1;
+}
+.content{
+  background-color: #f3f3f4;
+  flex:1;
+  width: 100%;
+}
 </style>
