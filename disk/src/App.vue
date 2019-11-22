@@ -18,41 +18,51 @@
     </template>
     </mt-popup>
 
-    <mt-header title="Eye Disk" class="header">
-        <mt-button  slot="left" @click="showNenu=!showNenu">
-          <img src="./assets/img/home.png" height="20" width="20" slot="icon">
-       </mt-button>
-     </mt-header>
-
-    <div class="content">
-      22
-    </div>
+    <header class="header">
+      <img class="logo" src="./assets/logo.png"/>
+      <h2>Eye Disk</h2>
+      <Button class="menu-btn" :icon="icon" @click="showNenu=!showNenu"></Button>
+    </header>
+    <main class="content">
+      <div></div>
+    </main>
   </div>
 </template>
 
 <script>
   import LeftBar from "./components/leftbar/LeftBar"
+  import Button from './components/common/Button'
   export default {
     components:{
-      LeftBar
+      LeftBar,
+      Button
     },
     data(){
       return{
-        showNenu:false
+        showNenu:false,
+        icon:require('./assets/img/more.png')
       }
     }
 
   }
 </script>
-<style>
+<style lang="scss">
 *{
   margin: 0;
   padding: 0;
   color: white;
   list-style: none;
 }
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+  height: 100%;
+}
 #app{
   font-family: '微软雅黑', 'Microsoft YaHei', Arial, Helvetica, sans-serif, '宋体';
+   height: 100%;
 }
 .leftBar{
   height: 100%;
@@ -65,7 +75,7 @@
     background-color:#343848;
 }
 .main{
-  /* position: relative; */
+  position: relative;
   display: flex;
   width: 100%;
   height: 100%;
@@ -74,11 +84,42 @@
 .header{
   width: 100%;
   height: 40px;
-   flex:1;
+  padding: 0;
+  margin: 0;
+  .logo{
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    line-height: 40px;
+    margin: auto 0;
+    vertical-align: middle;
+
+    padding-left: 10px;
+  }
+  h2{
+    color: #000;
+    display: inline-block;
+    padding-left: 2px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 40px;
+    margin: auto 0;
+    text-align: center;
+    vertical-align: middle;
+
+  }
+  .menu-btn{
+    width: 26px;
+    height:26px;
+    margin: 8px;
+    box-sizing:border-box;
+    position:absolute;
+    right: 2px;
+    top: 0;
+  }
 }
 .content{
-  background-color: #f3f3f4;
+  background-color:#f3f3f4;
   flex:1;
-  width: 100%;
 }
 </style>
