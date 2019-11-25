@@ -7,7 +7,8 @@
     <ul>
       <li class ="btngb"
       v-for="btn in btns" 
-      :key="btn.id">
+      :key="btn.id"
+      @click="clicked(btn.id)">
       <a >
         <img :src="btn.icon"/>
         <span>{{btn.text}}</span>
@@ -21,12 +22,6 @@
 <script>
 export default {
   name:'LeftBar',
-  props:{
-    isShowMenu:{
-      type:Boolean,
-      default:true
-    }
-  },
   data(){
       return{
         head:require('../../assets/img/man.png'),
@@ -63,6 +58,16 @@ export default {
   computed:{
   },
   methods:{
+    clicked(id){
+      this.$emit('hide-left-bar');
+      switch(id){
+        case 4:{
+          console.log('id',id)
+          this.$router.push({'path':'/Login'});
+          break;
+        }
+      }
+    }
   }
 }
 </script>

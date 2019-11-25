@@ -13,7 +13,9 @@
               <mt-button icon="back" @click="showNenu=!showNenu"></mt-button>
             </router-link>
           </mt-header>
-          <LeftBar></LeftBar>
+          <LeftBar @hide-left-bar="showNenu=false">
+
+          </LeftBar>
         </div>
     </template>
     </mt-popup>
@@ -24,7 +26,8 @@
       <Button class="menu-btn" :icon="icon" @click="showNenu=!showNenu"></Button>
     </header>
     <main class="content">
-      <div></div>
+      <!-- 路由匹配到的组件将渲染在这里 -->
+      <router-view></router-view>
     </main>
   </div>
 </template>
